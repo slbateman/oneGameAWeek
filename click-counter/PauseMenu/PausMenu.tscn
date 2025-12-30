@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddll0jr50hyh3"]
+
+[ext_resource type="Script" uid="uid://bmp6wbkw4xvqn" path="res://PauseMenu/PausMenu.cs" id="1_7d3ij"]
+
+[node name="PausMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7d3ij")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 151.0
+offset_top = -64.0
+offset_right = 314.0
+offset_bottom = 64.0
+grow_vertical = 2
+
+[node name="BtnRestart" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="BtnResume" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="BtnQuit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/BtnRestart" to="." method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/BtnResume" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/BtnQuit" to="." method="_on_QuitButton_pressed"]

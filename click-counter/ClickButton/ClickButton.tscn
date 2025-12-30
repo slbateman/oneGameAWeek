@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dufkyu833junf"]
+
+[ext_resource type="Script" uid="uid://ealciavve001" path="res://ClickButton/ClickButton.cs" id="1_gfvg5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfvg5"]
+albedo_color = Color(0, 0.45882353, 0, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_m0g5r"]
+height = 0.25
+
+[node name="ClickButton" type="Area3D"]
+script = ExtResource("1_gfvg5")
+
+[node name="ButtonBody" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+material_override = SubResource("StandardMaterial3D_gfvg5")
+height = 0.25
+sides = 16
+
+[node name="ButtonBase" type="CSGCylinder3D" parent="."]
+radius = 0.6
+height = 0.125
+sides = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
+shape = SubResource("CylinderShape3D_m0g5r")

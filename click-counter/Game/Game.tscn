@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://drhcx1hn4oko"]
+
+[ext_resource type="PackedScene" uid="uid://dufkyu833junf" path="res://ClickButton/ClickButton.tscn" id="1_hqwdr"]
+[ext_resource type="PackedScene" uid="uid://b8lbsgtaboyp0" path="res://Counter/Counter.tscn" id="2_vrr3t"]
+[ext_resource type="PackedScene" uid="uid://dv4fv34kwurv" path="res://Timer/Timer.tscn" id="3_iv3md"]
+[ext_resource type="PackedScene" uid="uid://ddll0jr50hyh3" path="res://PauseMenu/PausMenu.tscn" id="4_37esa"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_shyhj"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_hqwdr"]
+sky_material = SubResource("ProceduralSkyMaterial_shyhj")
+
+[sub_resource type="Environment" id="Environment_vrr3t"]
+background_mode = 2
+sky = SubResource("Sky_hqwdr")
+tonemap_mode = 2
+
+[node name="Game" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vrr3t")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.77309906, 0.6342854, 0, -0.6342854, 0.77309906, 0, 1.2764374, 1.5066273)
+
+[node name="ClickButton" parent="." instance=ExtResource("1_hqwdr")]
+
+[node name="Counter" parent="." instance=ExtResource("2_vrr3t")]
+
+[node name="Timer" parent="." instance=ExtResource("3_iv3md")]
+
+[node name="PausMenu" parent="." instance=ExtResource("4_37esa")]
+visible = false
+
+[connection signal="ClickButtonPressed" from="ClickButton" to="Counter" method="_on_click_button_click_button_pressed"]
+[connection signal="TimeUp" from="Timer" to="ClickButton" method="_on_timer_time_up"]
