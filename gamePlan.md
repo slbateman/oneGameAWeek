@@ -9,7 +9,7 @@
 - Win/lose conditions
 - Simple UI (score, restart)
 
-### Click Counter
+### Click Counter (completed)
   - **Description**: A simple score-chasing game where a large button in the center of the screen increases your score every time you click it during a short round timer. The round ends when the timer hits zero, encouraging you to chase personal bests and compare scores between runs.
   - **Skills Focus**: Input handling, UI basics, timers.
   - **Art Assets**: Simple button sprite, background panel or solid-color backdrop, basic font or bitmap text for score and timer, optional subtle click effect graphic.
