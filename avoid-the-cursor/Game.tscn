@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://ed738asndri2"]
+[gd_scene load_steps=3 format=3 uid="uid://ed738asndri2"]
+
+[ext_resource type="PackedScene" uid="uid://dt23q33kxkc4j" path="res://Hud/Hud.tscn" id="1_wbfu4"]
+[ext_resource type="PackedScene" uid="uid://cru2rgytlityf" path="res://PauseMenu/PauseMenu.tscn" id="2_7p9qk"]
 
 [node name="Game" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="UI" instance=ExtResource("1_wbfu4")]
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("2_7p9qk")]
+visible = false
